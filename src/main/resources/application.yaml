@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Spring Boot Order Service Application
+  data:
+    mongodb:
+      uri: ${mongodb-uri}
+      database: "online_store"
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-d8rm3bg4cwywnjin.eu.auth0.com/
+server:
+  port: 8081
