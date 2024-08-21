@@ -29,8 +29,12 @@ public class SecurityConfig {
     @Bean
     public Supplier<String> currentUserBearerToken() {
         return () -> {
-            JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-            return jwtAuthenticationToken.getToken().getTokenValue();
+            try {
+                JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+                return jwtAuthenticationToken.getToken().getTokenValue();
+            } catch (Exception e) {
+                return "";
+            }
         };
     }
 

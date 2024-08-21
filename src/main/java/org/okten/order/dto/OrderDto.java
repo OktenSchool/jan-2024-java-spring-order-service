@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.okten.order.entity.OrderStatus;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
@@ -23,4 +24,6 @@ public class OrderDto {
     private String user;
 
     private Map<Long, Integer> productCounts;
+
+    private OrderStatus status;
 }

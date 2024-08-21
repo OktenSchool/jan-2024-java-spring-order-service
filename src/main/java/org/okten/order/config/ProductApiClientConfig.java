@@ -14,7 +14,7 @@ public class ProductApiClientConfig {
     public ApiClient apiClient(Supplier<String> currentUserBearerToken) {
         ApiClient apiClient = new ApiClient();
         apiClient.setBasePath("http://localhost:8080");
-        apiClient.setBearerToken(currentUserBearerToken);
+//        apiClient.setBearerToken(currentUserBearerToken);
         return apiClient;
     }
 

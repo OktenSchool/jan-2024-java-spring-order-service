@@ -31,4 +31,6 @@ public class Order {
 
     @CreatedDate
     private LocalDateTime timestamp;
+
+    private OrderStatus status;
 }
