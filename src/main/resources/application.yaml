@@ -10,13 +10,19 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: https://dev-d8rm3bg4cwywnjin.eu.auth0.com/
-  kafka:
-    consumer:
-      topic: product-availability-updated-events
-      bootstrap-servers: localhost:9092
-      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
+  cloud:
+    function:
+      definition: product-availability-updated
+    stream:
+      kafka:
+        binder:
+          brokers: localhost
+          defaultBrokerPort: 9092
+      bindings:
+        product-availability-updated-in-0:
+          destination: product-events
+          group: my-consumer-group
+          content-type: application/x-java-object;type=org.okten.demo.api.event.dto.ProductwAvailabilityUpdatedPayload
+
 server:
   port: 8081
