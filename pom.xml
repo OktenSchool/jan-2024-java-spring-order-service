@@ -38,6 +38,7 @@
         <jackson-databind-nullable.version>0.2.6</jackson-databind-nullable.version>
         <swagger-annotations.version>2.2.20</swagger-annotations.version>
 
+
         <product-service-openapi-spec.path>
             ${project.basedir}/src/main/resources/specification/product-service.openapi.yaml
         </product-service-openapi-spec.path>
@@ -231,12 +232,13 @@
                             <configOptions>
                                 <modelPackage>${event-api-package}.dto</modelPackage>
                                 <jsonschema2pojo.useJakartaValidation>true</jsonschema2pojo.useJakartaValidation>
-                                <jsonschema2pojo.includeJsr303Annotations>false</jsonschema2pojo.includeJsr303Annotations>
+                                <jsonschema2pojo.includeJsr303Annotations>false
+                                </jsonschema2pojo.includeJsr303Annotations>
                             </configOptions>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>generate-asyncapi-producer</id>
+                        <id>generate-asyncapi-consumer</id>
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>

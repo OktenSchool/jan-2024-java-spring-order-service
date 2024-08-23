@@ -22,7 +22,7 @@ spring:
         product-availability-updated-in-0:
           destination: product-events
           group: my-consumer-group
-          content-type: application/x-java-object;type=org.okten.demo.api.event.dto.ProductwAvailabilityUpdatedPayload
+          content-type: application/json
 
 server:
   port: 8081
